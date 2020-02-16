@@ -81,7 +81,7 @@ export default class Animator extends Component{
   _resetPosition() {
     Animated.spring(this.position, {
       toValue: this.props.currentPosition
-    }).start();setIsDrawerExpanded
+    }).start();
 
     this.props.setCurrentPosition(this.position);
   }
