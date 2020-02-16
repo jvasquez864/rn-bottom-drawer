@@ -60,7 +60,8 @@ export default class Animator extends Component{
 
   // returns true if the swipe is within the height of the drawer.
   _swipeInBounds(gesture) {
-    return this.props.currentPosition.y + gesture.dy > this.props.upPosition.y;
+    const newYPosition = this.props.currentPosition.y + gesture.dy;
+    return newYPosition > this.props.upPosition.y && newYPosition < this.props.downPosition.y;
   }
 
   _calculateEase(gesture) {
