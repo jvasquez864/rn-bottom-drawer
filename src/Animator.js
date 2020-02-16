@@ -83,7 +83,6 @@ export default class Animator extends Component{
       toValue: this.props.currentPosition
     }).start();
 
-    this.props.setCurrentPosition(this.position);
   }
 }
 
