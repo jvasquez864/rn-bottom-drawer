@@ -41,6 +41,8 @@ export default class Animator extends Component{
   }
 
   _handlePanResponderMove = (e, gesture) => {
+    const newYPosition = this.props.currentPosition.y + gesture.dy;
+    if(newYPosition > this.props.downPosition.y) return;
     if (this._swipeInBounds(gesture)) {
       this.position.setValue({ y: this.props.currentPosition.y + gesture.dy });
     } else {
@@ -60,8 +62,7 @@ export default class Animator extends Component{
 
   // returns true if the swipe is within the height of the drawer.
   _swipeInBounds(gesture) {
-    const newYPosition = this.props.currentPosition.y + gesture.dy;
-    return newYPosition > this.props.upPosition.y && newYPosition < this.props.downPosition.y;
+    return this.props.currentPosition.y + gesture.dy > this.props.upPosition.y;
   }
 
   _calculateEase(gesture) {
